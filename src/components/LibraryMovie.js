@@ -14,17 +14,21 @@ class LibraryMovie extends Component {
     console.log('Rendering a movie')
     return (
       <div className="movie">
-        <p>I am a movie</p>
+        <h2>{this.props.title}</h2>
+        <img src={this.props.image_url} alt="movie image" />
+        <p>Release Date: {this.props.release_date}</p>
+        <p>Overview:</p>
+        <p>Overview: {this.props.overview}</p>
+
         <button className="add-movie" onClick={this.addMovie}>Add to Rental</button>
       </div>
       )
     }
   }
 
-  Card.propTypes = {
-    text: PropTypes.string.isRequired,
+  LibraryMovie.propTypes = {
+    title: PropTypes.string.isRequired,
     image_url: PropTypes.string,
-
     id: PropTypes.number.isRequired,
   };
 

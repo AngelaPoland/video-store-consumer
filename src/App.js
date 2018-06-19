@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Customer from './components/Customer.js'
 import CustList from './components/CustomerList.js'
+import LibraryList from './components/LibraryList.js'
 import logo from './logo.svg';
 import './App.css';
 
@@ -17,6 +18,7 @@ class App extends Component {
         </p>
         <p>
         <CustList />
+        <LibraryList />
         </p>
       </div>
     );

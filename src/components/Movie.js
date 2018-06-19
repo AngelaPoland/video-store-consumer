@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 
 class LibraryMovie extends Component {
 
-  addMovie = (event) => {
+  addMovieToLibrary = (event) => {
       console.log(event.target.id);
       event.preventDefault();
-      this.props.addMovieToRental(this.props.id);
+      this.props.addMovieToLibrary(this.props.id);
     }
 
   render() {
@@ -15,12 +15,12 @@ class LibraryMovie extends Component {
     return (
       <div className="movie">
         <h2>{this.props.title}</h2>
-        <img src={this.props.image_url} alt="movie image" />
+        <img src={this.props.poster_path} alt="movie image" />
         <p>Release Date: {this.props.release_date}</p>
         <p>Overview:</p>
         <p>Overview: {this.props.overview}</p>
 
-        <button className="add-movie" onClick={this.addMovie}>Add to Rental</button>
+        <button className="add-movie" onClick={this.addMovieToLibrary}>Add Movie to Library</button>
       </div>
       )
     }
@@ -30,9 +30,10 @@ class LibraryMovie extends Component {
     title: PropTypes.string.isRequired,
     image_url: PropTypes.string,
     id: PropTypes.number.isRequired,
+    poster_path: PropTypes.string,
     release_date: PropTypes.string,
     overview: PropTypes.string,
-    addMovieToRental: PropTypes.func.isRequired
+    addMovieToLibrary: PropTypes.func.isRequired
   };
 
   export default LibraryMovie;

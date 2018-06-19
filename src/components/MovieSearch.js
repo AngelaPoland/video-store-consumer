@@ -31,6 +31,26 @@ searchMovieAPI = (title) => {
     } );
 }
 
+addMovieToLibrary = (movie) => {
+    const movies = this.state.movies;
+    axios.post(`http://localhost:3000/movies/`, movie)
+    .then((response) => {
+      movie.id = response.data.id;
+      movies.push(movie);
+      console.log(movie);
+      this.setState({
+        movies,
+        message: `Successfully Added a new Movie to the Rental Library`
+      });
+    })
+    .catch((error) => {
+      console.log(error)
+      this.setState({
+        message: error.message,
+      });
+    });
+  }
+
 movieSearchShow = () => {
   console.log('Pulling list of customers')
   const movieList = this.state.movies.map((movie, index) => {
@@ -41,18 +61,22 @@ movieSearchShow = () => {
       image_url={movie.image_url}
       release_date={movie.release_date}
       overview={movie.overview}
+      addMovie={this.addMovieToLibrary}
+      movie={movie}
     />
   );
 });
 return movieList
 }
 
+
+
   render() {
       return(
         <div>
           <MovieSearchForm searchForMovie={this.searchMovieAPI} />
-          <p>{this.state.error}</p>
-          <p>{this.state.message}</p>
+          <p><strong>{this.state.error}</strong></p>
+          <p><strong>{this.state.message}</strong></p>
           {this.movieSearchShow()}
         </div>
       )

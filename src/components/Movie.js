@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import LibraryList from './LibraryList.js'
 // import './LibraryMovie.css';
 
 class Movie extends Component {
@@ -7,7 +8,7 @@ class Movie extends Component {
   addMovieToLibrary = (event) => {
       console.log(event.target.id);
       event.preventDefault();
-      this.props.addMovieToLibrary(this.props.id);
+      this.props.addMovie(this.props.movie);
     }
 
   render() {
@@ -19,9 +20,9 @@ class Movie extends Component {
         <img src={this.props.image_url} />
         <p>Release Date: {this.props.release_date}</p>
         <p>Overview:</p>
-        <p>Overview: {this.props.overview}</p>
+        <p>{this.props.overview}</p>
 
-        <button className="add-movie" onClick={this.addMovieToLibrary}>Add Movie to Library</button>
+        <button onClick={this.addMovieToLibrary}>Add Movie to Library</button>
       </div>
       )
     }
@@ -34,7 +35,7 @@ class Movie extends Component {
     image_url: PropTypes.string,
     release_date: PropTypes.string,
     overview: PropTypes.string,
-    addMovieToLibrary: PropTypes.func.isRequired
+    addMovie: PropTypes.func.isRequired
   };
 
   export default Movie;

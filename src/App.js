@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Customer from './components/Customer.js'
+import CustList from './components/CustomerList.js'
 import logo from './logo.svg';
 import './App.css';
 
@@ -12,6 +14,9 @@ class App extends Component {
         </header>
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
+        </p>
+        <p>
+        <CustList />
         </p>
       </div>
     );

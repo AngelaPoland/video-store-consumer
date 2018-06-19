@@ -15,7 +15,6 @@ constructor(){
 componentDidMount = () => {
   axios.get('http://localhost:3000/customers')
     .then( (response) => {
-      // console.log(response.data)
       this.setState({
         customers: response.data
       });
@@ -29,6 +28,13 @@ componentDidMount = () => {
     } );
 }
 
+selectedCustomer = (anEvent) => {
+    this.props.appCustomer(anEvent)
+}
+
+
+
+
 customerList = () => {
   console.log('Pulling list of customers')
   const customerList = this.state.customers.map((aCustomer, index) => {
@@ -36,11 +42,13 @@ customerList = () => {
     <Customer
       key={index}
       name={aCustomer.name}
+      custTolist={this.selectedCustomer}
     />
   );
 });
   return customerList;
 }
+
 
   render() {
       return(

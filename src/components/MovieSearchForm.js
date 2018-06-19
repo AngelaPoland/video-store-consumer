@@ -9,7 +9,7 @@ class MovieSearchForm extends Component {
     super();
 
     this.state = {
-      text:'',
+      title:'',
     };
   }
 
@@ -21,18 +21,24 @@ class MovieSearchForm extends Component {
     this.setState(updateState);
   }
 
+  valid = () => {
+    return this.state.title.length > 0;
+  }
+
 
   clearForm = () => {
     this.setState({
-      text: '',
-      emoji: '',
+      title: '',
     })
   }
 
   onFormSubmit = (event) => {
     event.preventDefault();
-       this.props.searchMovieAPI(this.state)
-       this.clearForm()
+    console.log(this.state);
+    if (this.valid()) {
+       this.props.searchForMovie(this.state.title)
+       this.clearForm();
+     }
   }
 
   render() {
@@ -41,10 +47,10 @@ class MovieSearchForm extends Component {
       <p >Search for Movie by Title:</p>
       <form onSubmit={this.onFormSubmit} >
         <div>
-          <label hmtlfor="text" className="new-card-form__form-label">Title: </label>
+          <label hmtlfor="text">Title: </label>
           <input
-            name="text"
-            value={this.state.text}
+            name="title"
+            value={this.state.title}
             onChange={this.onFieldChange}
             type="text"
             />
@@ -60,7 +66,7 @@ class MovieSearchForm extends Component {
 }
 
 MovieSearchForm.propTypes = {
-  searchMovieCallBack: PropTypes.func.isRequired,
+  searchForMovie: PropTypes.func.isRequired,
 }
 
 export default MovieSearchForm;

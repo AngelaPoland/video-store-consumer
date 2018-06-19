@@ -6,19 +6,20 @@ import MovieSearchForm from './MovieSearchForm.js'
 
 class MovieSearch extends Component {
 
-constructor(){
-  super();
+constructor(props) {
+  super(props);
   this.state = {
     movies:[]
   }
 }
 
 searchMovieAPI = (title) => {
-  axios.get(`https://api.themoviedb.org/3/search/movie?api_key=c880315e20c6b7ec240bbd68aff8f201&query=${title}`)
+  axios.get(`http://localhost:3000/movies?query=${ title }`)
     .then( (response) => {
-      // console.log(response.data)
+      console.log(response)
       this.setState({
-        movies: response.data.results
+        movies: response.data,
+        message: `Found ${response.data.length} results for "${title}" `
       });
     } )
     .catch( (error) => {
@@ -37,7 +38,7 @@ movieSearchShow = () => {
     <Movie
       key={index}
       name={movie.title}
-      poster_path={movie.poster_path}
+      image_url={movie.image_url}
       release_date={movie.release_date}
       overview={movie.overview}
     />
@@ -49,7 +50,9 @@ return movieList
   render() {
       return(
         <div>
-          <MovieSearchForm searchMovieAPI={this.searchMovieAPI} />
+          <MovieSearchForm searchForMovie={this.searchMovieAPI} />
+          <p>{this.state.error}</p>
+          <p>{this.state.message}</p>
           {this.movieSearchShow()}
         </div>
       )

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 // import './LibraryMovie.css';
 
-class LibraryMovie extends Component {
+class Movie extends Component {
 
   addMovieToLibrary = (event) => {
       console.log(event.target.id);
@@ -12,10 +12,11 @@ class LibraryMovie extends Component {
 
   render() {
     console.log('Rendering a movie')
+    console.log(this.props)
     return (
       <div className="movie">
-        <h2>{this.props.title}</h2>
-        <img src={this.props.poster_path} alt="movie image" />
+        <h2>{this.props.name}</h2>
+        <img src={this.props.image_url} />
         <p>Release Date: {this.props.release_date}</p>
         <p>Overview:</p>
         <p>Overview: {this.props.overview}</p>
@@ -26,14 +27,14 @@ class LibraryMovie extends Component {
     }
   }
 
-  LibraryMovie.propTypes = {
-    title: PropTypes.string.isRequired,
+  Movie.propTypes = {
+    name: PropTypes.string.isRequired,
     image_url: PropTypes.string,
     id: PropTypes.number.isRequired,
-    poster_path: PropTypes.string,
+    image_url: PropTypes.string,
     release_date: PropTypes.string,
     overview: PropTypes.string,
     addMovieToLibrary: PropTypes.func.isRequired
   };
 
-  export default LibraryMovie;
+  export default Movie;

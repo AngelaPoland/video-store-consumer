@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 // import './LibraryMovie.css';
-
+import MovieRentalButton from './MovieRentalButton.js'
 class LibraryMovie extends Component {
 
   addMovie = (event) => {
@@ -9,6 +9,12 @@ class LibraryMovie extends Component {
       event.preventDefault();
       this.props.addMovieToRental(this.props.id);
     }
+
+    selectedCustomerfromButton = () =>{
+      return this.props.rentalFun(this.props.title)
+    }
+
+
 
   render() {
     console.log('Rendering a movie')
@@ -18,9 +24,10 @@ class LibraryMovie extends Component {
         <img src={this.props.image_url} alt="movie image" />
         <p>Release Date: {this.props.release_date}</p>
         <p>Overview:</p>
-        <p>Overview: {this.props.overview}</p>
-
-        <button className="add-movie" onClick={this.addMovie}>Add to Rental</button>
+        <p>{this.props.overview}</p>
+        <p>
+          <MovieRentalButton selectedMovie={this.selectedCustomerfromButton}/>
+        </p>
       </div>
       )
     }

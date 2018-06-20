@@ -18,6 +18,7 @@ componentDidMount = () => {
       this.setState({
         customers: response.data
       });
+      console.log(response.data)
     } )
     .catch( (error) => {
       console.log("got to the error");
@@ -33,17 +34,17 @@ selectedCustomer = (anEvent) => {
 }
 
 
-
-
 customerList = () => {
   console.log('Pulling list of customers')
   const customerList = this.state.customers.map((aCustomer, index) => {
   return (
-    <Customer
-      key={index}
-      name={aCustomer.name}
-      custTolist={this.selectedCustomer}
-    />
+      <Customer
+        key={index}
+        id={index+1}
+        name={aCustomer.name}
+        custTolist={this.selectedCustomer}
+        rentals={0}
+      />
   );
 });
   return customerList;

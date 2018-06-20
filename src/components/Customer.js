@@ -13,14 +13,14 @@ class Customer extends Component {
   }
 
   selectedCustomerfromButton = () =>{
-    this.props.custTolist(this.props.name)
+    this.props.custTolist({name:this.props.name, rentals: this.props.rentals, id: this.props.id})
   }
 
   render(){
     return(
       <div>
         <h2>{this.props.name}</h2>
-        <p>Number of rentals: {this.state.numberOfrentals}</p>
+        <p>Number of rentals: {this.props.rentals}</p>
         <p>
             <CustRentButton
               rentalCustomer={this.props.name}
@@ -33,7 +33,9 @@ class Customer extends Component {
 }
 
 Customer.propTypes = {
-  name: PropTypes.string.isRequired
+  name: PropTypes.string.isRequired,
+  rentals: PropTypes.number,
+  id: PropTypes.number.isRequired
 }
 
 export default Customer;

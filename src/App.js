@@ -5,6 +5,7 @@ import LibraryList from './components/LibraryList.js'
 import MovieSearch from './components/MovieSearch.js'
 import logo from './logo.svg';
 import Rental from './components/Rental.js'
+import MovieRentalButton from './components/MovieRentalButton.js';
 import './App.css';
 
 class App extends Component {
@@ -30,7 +31,11 @@ class App extends Component {
   }
 
 
-
+appLevelmovie = (aMovie) =>{
+  this.setState({
+    selectedMovie: aMovie
+  })
+}
 
 
 
@@ -43,7 +48,8 @@ class App extends Component {
         </header>
         <p>
           <Rental
-            customerName={this.state.selectedCustomer}
+            customer={this.state.selectedCustomer}
+            movieName={this.state.selectedMovie}
           />
         </p>
         <p className="App-intro">
@@ -51,14 +57,15 @@ class App extends Component {
         </p>
         <p>
         <MovieSearch />
-
         <CustList
           appCustomer={this.appLevelcustomer}
         />
 
-
-        <LibraryList />
+        <LibraryList
+          appMovie={this.appLevelmovie}
+        />
         </p>
+
       </div>
     );
   }

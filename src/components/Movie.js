@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import LibraryList from './LibraryList.js'
+import LibraryList from './LibraryList.js';
 // import './LibraryMovie.css';
 
 class Movie extends Component {
@@ -10,6 +10,8 @@ class Movie extends Component {
       event.preventDefault();
       this.props.addMovie(this.props.movie);
     }
+
+  
 
   render() {
     console.log('Rendering a movie')
@@ -21,7 +23,6 @@ class Movie extends Component {
         <p>Release Date: {this.props.release_date}</p>
         <p>Overview:</p>
         <p>{this.props.overview}</p>
-
         <button onClick={this.addMovieToLibrary}>Add Movie to Library</button>
       </div>
       )

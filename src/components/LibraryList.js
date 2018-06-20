@@ -13,6 +13,9 @@ constructor(){
   }
 }
 
+movieFromlibrary = (aMovie) => {
+  this.props.appMovie(aMovie)
+}
 
 
 componentDidMount = () => {
@@ -42,6 +45,7 @@ libraryList = () => {
         image_url={aMovie.image_url}
         release_date={aMovie.release_date}
         overview={aMovie.overview}
+        rentalFun={this.movieFromlibrary}
       />
 
   );

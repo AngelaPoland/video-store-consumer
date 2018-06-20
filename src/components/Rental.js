@@ -3,7 +3,13 @@ import PropTypes from 'prop-types';
 import Cust from './Customer.js'
 import axios from 'axios';
 class Rental extends Component {
-
+  constructor() {
+    super();
+    this.state = {
+      success: '',
+      error: ''
+    };
+  }
 addRental = () => {
   let time = new Date();
 
@@ -15,10 +21,14 @@ addRental = () => {
 
   axios.post( `http://localhost:3000/rentals/${movie}/check-out?customer_id=${this.props.customer.id}&due_date=${rentalDate}`)
     .then((response) => {
-      console.log(response)
+      this.setState({
+        success: `Success: ${movie} has been checked out and is due on ${rentalDate}.`
+      })
     })
     .catch((error) => {
-      console.log(error.message);
+      this.setState({
+        error:error.message
+      })
     });
 }
 
@@ -30,6 +40,9 @@ onFormSubmit = (event) => {
 
   render(){
     return(
+      <div>
+      <h4>{this.state.error}</h4>
+      <h4>{this.state.success}</h4>
       <form onSubmit={this.onFormSubmit}>
         <div>
           <label htmlFor="customerName">Customer: </label>
@@ -41,6 +54,7 @@ onFormSubmit = (event) => {
         </div>
         <input type="submit" value="Checkout" />
       </form>
+      </div>
     )
   }
 }

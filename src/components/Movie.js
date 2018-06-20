@@ -1,17 +1,26 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import LibraryList from './LibraryList.js';
+import axios from 'axios';
+
 // import './LibraryMovie.css';
 
 class Movie extends Component {
 
-  addMovieToLibrary = (event) => {
-      console.log(event.target.id);
-      event.preventDefault();
-      this.props.addMovie(this.props.movie);
-    }
 
-  
+    addMovieToLibrary = () => {
+    const URL = `http://localhost:3000/movies/`
+    axios.post(URL + `?title=${this.props.name}&release_date=${this.props.release_date}&image_url=${this.props.image_url}&overview=${this.props.overview}`)
+    .then((response) => {
+      console.log(response)
+      `Successfully added "${this.props.name}" to the Video Store Library`
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }
+
+
 
   render() {
     console.log('Rendering a movie')
@@ -33,7 +42,6 @@ class Movie extends Component {
     name: PropTypes.string.isRequired,
     image_url: PropTypes.string,
     id: PropTypes.number.isRequired,
-    image_url: PropTypes.string,
     release_date: PropTypes.string,
     overview: PropTypes.string,
     addMovie: PropTypes.func.isRequired

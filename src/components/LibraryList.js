@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import axios from 'axios';
 import LibraryMovie from './LibraryMovie.js'
 import Movie from './Movie.js'
@@ -53,32 +52,11 @@ libraryList = () => {
   return libraryList;
 }
 
-// addMovieToLibrary = (movie) => {
-//     const movies = this.state.movies;
-//     axios.post(`http://localhost:3000/movies/`, movie)
-//     .then((response) => {
-//       movie.id = response.data.id;
-//       movies.push(movie);
-//       console.log(movie);
-//       this.setState({
-//         movies,
-//         message: `Successfully Added a new Movie to the Rental Library`
-//       });
-//     })
-//     .catch((error) => {
-//       console.log(error)
-//       this.setState({
-//         message: error.message,
-//       });
-//     });
-//   }
-
-
   render() {
       return(
         <div>
           {this.libraryList()}
-
+          <Movie addMovie={this.addMovieToLibrary}/>
         </div>
       )
   }

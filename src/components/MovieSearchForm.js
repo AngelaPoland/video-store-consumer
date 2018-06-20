@@ -44,7 +44,7 @@ class MovieSearchForm extends Component {
   render() {
     return(
       <div >
-      <p >Search for Movie by Title:</p>
+      <p><strong>Search for Movie by Title:</strong></p>
       <form onSubmit={this.onFormSubmit} >
         <div>
           <label hmtlfor="text">Title: </label>

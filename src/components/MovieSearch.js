@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import axios from 'axios';
 import Movie from './Movie.js'
 import MovieSearchForm from './MovieSearchForm.js'
@@ -31,25 +30,7 @@ searchMovieAPI = (title) => {
     } );
 }
 
-addMovieToLibrary = (movie) => {
-    const movies = this.state.movies;
-    axios.post(`http://localhost:3000/movies/`, movie)
-    .then((response) => {
-      movie.id = response.data.id;
-      movies.push(movie);
-      console.log(movie);
-      this.setState({
-        movies,
-        message: `Successfully Added a new Movie to the Rental Library`
-      });
-    })
-    .catch((error) => {
-      console.log(error)
-      this.setState({
-        message: error.message,
-      });
-    });
-  }
+
 
 movieSearchShow = () => {
   console.log('Pulling list of customers')

@@ -1,4 +1,9 @@
 import React, { Component } from 'react';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom';
 import Customer from './components/Customer.js'
 import CustList from './components/CustomerList.js'
 import LibraryList from './components/LibraryList.js'
@@ -51,9 +56,6 @@ appLevelmovie = (aMovie) =>{
             customer={this.state.selectedCustomer}
             movieName={this.state.selectedMovie}
           />
-        </p>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <p>
         <MovieSearch />

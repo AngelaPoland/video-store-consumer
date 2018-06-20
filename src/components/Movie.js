@@ -11,6 +11,7 @@ class Movie extends Component {
     axios.post(URL + `?title=${this.props.name}&release_date=${this.props.release_date}&image_url=${this.props.image_url}&overview=${this.props.overview}`)
     .then((response) => {
       console.log(response)
+      `Successfully added "${this.props.name}" to the Video Store Library`
     })
     .catch((error) => {
       console.log(error);

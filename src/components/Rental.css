@@ -3,20 +3,21 @@ h3{
   margin-left: 5px;
 }
 
-
 .rental-labels{
   display:flex;
 }
 
 .rental-labels div{
   margin-left: 10px;
+  padding-bottom: 10px;
 }
 
 .submit-button{
   margin-left: 10px;
+  margin-bottom: 10px;
 }
 
 .check-out-section{
-  background-color: red;
+
   margin-top: 0px;
 }

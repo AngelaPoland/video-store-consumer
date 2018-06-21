@@ -40,7 +40,6 @@ class Rental extends Component {
   render(){
     return(
       <div className="check-out-section">
-        <h3>Checkout a customer</h3>
         <form onSubmit={this.onFormSubmit}>
         <section className="rental-labels">
           <div>
@@ -51,9 +50,10 @@ class Rental extends Component {
             <label className="movie-label" htmlFor="movieName">Movie: </label>
             <input name="movie" value={this.props.movie.title} disabled/>
           </div>
-          </section>
           <input className="submit-button" type="submit" value="Checkout" />
+            </section>
         </form>
+          <hr/>
       </div>
     )
   }

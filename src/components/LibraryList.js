@@ -37,7 +37,7 @@ componentDidMount = () => {
 libraryList = () => {
   console.log('Pulling list of movies')
   const libraryList = this.state.movies.map((aMovie, index) => {
-  return (
+  return(
       <LibraryMovie
         key={index}
         title={aMovie.title}
@@ -46,15 +46,23 @@ libraryList = () => {
         overview={aMovie.overview}
         rentalFun={this.movieFromlibrary}
       />
-
   );
 });
   return libraryList;
 }
 
+
+moviesFromsearch = () => {
+  const movies = this.state.movies.map((movie) =>{
+    return(
+      {title:movie.title, image: movie.image_url}
+    )
+  })
+  return movies;
+}
   render() {
       return(
-        <div>
+        <div className="library-list">
           {this.libraryList()}
           <Movie addMovie={this.addMovieToLibrary}/>
         </div>

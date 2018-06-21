@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Cust from './Customer.js'
 import axios from 'axios';
+import './Rental.css';
 class Rental extends Component {
 
   constructor() {
@@ -38,17 +39,20 @@ class Rental extends Component {
 
   render(){
     return(
-      <div>
+      <div className="check-out-section">
+        <h3>Checkout a customer</h3>
         <form onSubmit={this.onFormSubmit}>
+        <section className="rental-labels">
           <div>
-            <label htmlFor="customerName">Customer: </label>
+            <label className="customer-label" htmlFor="customerName">Customer: </label>
             <input name="cust" value={this.props.customer.name} disabled/>
           </div>
           <div>
-            <label htmlFor="movieName">Movie: </label>
+            <label className="movie-label" htmlFor="movieName">Movie: </label>
             <input name="movie" value={this.props.movie.title} disabled/>
           </div>
-          <input type="submit" value="Checkout" />
+          </section>
+          <input className="submit-button" type="submit" value="Checkout" />
         </form>
       </div>
     )

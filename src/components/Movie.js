@@ -7,7 +7,6 @@ import axios from 'axios';
 
 class Movie extends Component {
 
-
     addMovieToLibrary = () => {
     this.props.setStatus(`Adding movie "${this.props.name}" to rental library...`, 'pending');
     const URL = `http://localhost:3000/movies/`

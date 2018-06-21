@@ -65,7 +65,9 @@ return movieList
           <MovieSearchForm searchForMovie={this.searchMovieAPI} />
           <p><strong>{this.state.error}</strong></p>
           <p><strong>{this.state.message}</strong></p>
+          <section className="db-movie-search-list">
           {this.movieSearchShow()}
+          </section>
         </div>
       )
   }

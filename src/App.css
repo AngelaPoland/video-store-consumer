@@ -2,6 +2,73 @@
   text-align: center;
 }
 
+/* navigation bar */
+
+.nav-bar{
+  display:flex;
+  flex-wrap:nowrap;
+  justify-content: space-around;
+}
+
+.nav-bar li{
+   list-style-type: none;
+}
+
+/* customer list */
+
+.customer-list{
+  display:flex;
+  flex-wrap: wrap;
+}
+
+.customer-list > *{
+  margin: 30px;
+
+}
+
+.customer-list > div {
+  /* background-color: red; */
+  /* flex-basis: 75px;
+  flex-grow: 0;
+  height: 25px;
+  width: 2300px;
+  text-align: center; */
+  border: 1px solid black;
+  padding:10px;
+}
+
+/* library move list */
+
+.library-list{
+  display:flex;
+  flex-wrap: wrap;
+}
+
+.library-list > *{
+  flex-grow: 0;
+  flex-basis: 0;
+  width: auto;
+  margin: 10px;
+}
+
+/* database movie list */
+.db-movie-search-list{
+  display:flex;
+  flex-wrap: wrap;
+}
+
+.db-movie-search-list > *{
+  flex-grow: 0;
+  flex-basis: 0;
+  width: auto;
+  margin: 10px;
+}
+
+
+
+
+
+
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;

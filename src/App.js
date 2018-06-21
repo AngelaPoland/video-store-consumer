@@ -22,6 +22,7 @@ class App extends Component {
     }
   }
 
+
   appLevelcustomer = (aCustomer) =>{
     this.setState({
       selectedCustomer: aCustomer
@@ -76,7 +77,8 @@ appLevelmovie = (aMovie) =>{
       <li><Link to="/customers">Customers</Link></li>
       <li><Rental
         customer={this.state.selectedCustomer}
-        movieName={this.state.selectedMovie}
+        movie={this.state.selectedMovie}
+        clearFrm={this.clearStateCallback}
       /></li>
       </ul>
 

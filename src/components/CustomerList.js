@@ -60,8 +60,10 @@ customerList = () => {
 
   render() {
       return(
-        <div>
+        <div className="customer-list">
+
           {this.customerList()}
+
         </div>
       )
   }

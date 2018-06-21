@@ -9,8 +9,6 @@ class Customer extends Component {
     this.props.custTolist({name:this.props.name, rentals: this.props.rentals, id: this.props.id})
   }
 
-
-
   render(){
     return(
       <div>

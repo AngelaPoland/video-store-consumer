@@ -67,18 +67,20 @@ clearStatus = () => {
     return (
       <Router>
       <section>
-      <ul>
+      <ul className="nav-bar">
       <li><Link to="/">Home</Link></li>
       <li><Link to="/search">Search the Database</Link></li>
       <li><Link to="/library">Rental Library</Link></li>
       <li><Link to="/customers">Customers</Link></li>
-      <li><Rental
-        customer={this.state.selectedCustomer}
-        movie={this.state.selectedMovie}
-        setStatus={this.setStatus}
-      /></li>
       </ul>
       <hr/>
+        <div>
+        <Rental
+          customer={this.state.selectedCustomer}
+          movie={this.state.selectedMovie}
+          setStatus={this.setStatus}
+        />
+        </div>
         <div>
           <StatusBar {...this.state.status} clearStatus={this.clearStatus} />
         </div>
@@ -89,9 +91,11 @@ clearStatus = () => {
       <Route path="/library"
       render={(props) => <LibraryList {...props} appMovie={this.appLevelmovie} setStatus={this.setStatus} />}
       />
+
       <Route path="/customers"
       render={(props) => <CustList {...props} appCustomer={this.appLevelcustomer} setStatus={this.setStatus} />}
       />
+
 
       </section>
 

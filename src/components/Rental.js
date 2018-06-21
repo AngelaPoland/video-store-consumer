@@ -18,11 +18,12 @@ addRental = () => {
   let day = time.getDate()
   let rentalDate = `${year}-${month}-${day + 7}`;
   let movie = this.props.movieName;
+  let customer = this.props.customer.name
 
   axios.post( `http://localhost:3000/rentals/${movie}/check-out?customer_id=${this.props.customer.id}&due_date=${rentalDate}`)
     .then((response) => {
       this.setState({
-        success: `Success: ${movie} has been checked out and is due on ${rentalDate}.`
+        success: `Success: ${movie} has been checked out by ${customer} and is due on ${rentalDate}.`
       })
     })
     .catch((error) => {

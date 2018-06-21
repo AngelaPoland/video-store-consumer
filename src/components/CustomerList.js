@@ -40,10 +40,14 @@ customerList = () => {
   return (
       <Customer
         key={index}
-        id={index+1}
         name={aCustomer.name}
+        rentals={aCustomer.movies_checked_out_count}
+        id={aCustomer.id}
+        address={aCustomer.address}
+        postal={aCustomer.postal}
+        city={aCustomer.city}
+        phone={aCustomer.phone}
         custTolist={this.selectedCustomer}
-        rentals={0}
       />
   );
 });

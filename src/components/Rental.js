@@ -18,6 +18,8 @@ addRental = () => {
   let day = time.getDate()
   let rentalDate = `${year}-${month}-${day + 7}`;
   let movie = this.props.movieName;
+  // console.log('checelkdjflskdjflskjd')
+  // console.log(this.props.customer.rentals)
 
   axios.post( `http://localhost:3000/rentals/${movie}/check-out?customer_id=${this.props.customer.id}&due_date=${rentalDate}`)
     .then((response) => {
@@ -32,7 +34,7 @@ addRental = () => {
     });
 }
 
-
+ 
 onFormSubmit = (event) => {
   event.preventDefault();
   this.addRental();

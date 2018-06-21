@@ -14,13 +14,6 @@ import MovieRentalButton from './components/MovieRentalButton.js';
 import './App.css';
 
 class App extends Component {
-  // App needs to know which person has been selectedCustomer//
-  //pass that name down to the Rental .js file
-
-  //have the state of the customer and the movie
-  //updated by the individual components
-  //pass the values into the lower level components as
-  //props.
   constructor(){
     super();
     this.state = {

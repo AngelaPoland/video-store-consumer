@@ -53,7 +53,12 @@ clearStatus = () => {
   render() {
 
     const home = () => {
-      return (<p>Welcome to Selam and Angelas video rental store!</p>);
+      return (
+        <div>
+          <p>Welcome to Selam and Angelas video rental store!</p>
+          <iframe src="https://giphy.com/embed/26DMYEDmjttF46vV6" width="382" height="480" frameBorder="0" className="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/stickers/vintage-3d-26DMYEDmjttF46vV6"></a></p>
+        </div>
+      );
     };
 
     return (

@@ -29,6 +29,8 @@ class App extends Component {
     this.setState({
       selectedCustomer: aCustomer
     })
+    console.log('afasdfasdf')
+      console.log(aCustomer)
   }
 
 
@@ -72,7 +74,7 @@ clearStatus = () => {
       <li><Link to="/customers">Customers</Link></li>
       <li><Rental
         customer={this.state.selectedCustomer}
-        movieName={this.state.selectedMovie}
+        movie={this.state.selectedMovie}
         setStatus={this.setStatus}
       /></li>
       </ul>

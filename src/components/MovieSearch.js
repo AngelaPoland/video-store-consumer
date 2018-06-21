@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import axios from 'axios';
 import Movie from './Movie.js'
 import MovieSearchForm from './MovieSearchForm.js'
 
 class MovieSearch extends Component {
+  static propTypes = {
+    setStatus: PropTypes.func.isRequired
+  }
 
 constructor(props) {
   super(props);
@@ -13,9 +17,10 @@ constructor(props) {
 }
 
 searchMovieAPI = (title) => {
+  this.props.setStatus(`Searching for "${title}"...`, 'pending');
   axios.get(`http://localhost:3000/movies?query=${ title }`)
     .then( (response) => {
-      console.log(response)
+      this.props.setStatus(`Found ${response.data.length} results for ${title}`, 'success');
       this.setState({
         movies: response.data,
         message: `Found ${response.data.length} results for "${title}" `
@@ -24,6 +29,7 @@ searchMovieAPI = (title) => {
     .catch( (error) => {
       console.log("got to the error");
       console.log(error);
+      this.props.setStatus(`Could not search for "${title}": ${error.message}`, 'error');
       this.setState({
         error: error.message
       });
@@ -44,6 +50,7 @@ movieSearchShow = () => {
       overview={movie.overview}
       addMovie={this.addMovieToLibrary}
       movie={movie}
+      setStatus={this.setStatus}
     />
   );
 });

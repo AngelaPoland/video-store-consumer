@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 import LibraryMovie from './LibraryMovie.js'
 import Movie from './Movie.js'
 
@@ -20,14 +21,13 @@ movieFromlibrary = (aMovie) => {
 componentDidMount = () => {
   axios.get('http://localhost:3000/movies')
     .then( (response) => {
-      // console.log(response.data)
+      this.props.setStatus(`Successfully loaded ${response.data.length} movies from the rental library`, 'success');
       this.setState({
         movies: response.data
       });
     } )
     .catch( (error) => {
-      console.log("got to the error");
-      console.log(error);
+      this.props.setStatus(`Failed to load movies: ${error.message}`, 'success');
       this.setState({
         error: error.message
       });
@@ -62,5 +62,8 @@ libraryList = () => {
   }
 }
 
-
+LibraryList.propTypes = {
+  setStatus: PropTypes.func.isRequired,
+  appMovie: PropTypes.func.isRequired,
+}
 export default LibraryList;

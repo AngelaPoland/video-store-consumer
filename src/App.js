@@ -4,11 +4,10 @@ import {
   Route,
   Link
 } from 'react-router-dom';
-import Customer from './components/Customer.js'
+import StatusBar from './components/StatusBar';
 import CustList from './components/CustomerList.js'
 import LibraryList from './components/LibraryList.js'
 import MovieSearch from './components/MovieSearch.js'
-import logo from './logo.svg';
 import Rental from './components/Rental.js'
 import MovieRentalButton from './components/MovieRentalButton.js';
 import './App.css';
@@ -18,7 +17,10 @@ class App extends Component {
     super();
     this.state = {
       selectedCustomer: '',
-      selectedMovie:''
+      selectedMovie:'',
+      status: {
+        message: '',
+      }
     }
   }
 
@@ -35,38 +37,26 @@ appLevelmovie = (aMovie) =>{
   })
 }
 
+// thanks for the inspiration Dan!
+setStatus = (message, type) => {
+  this.setState({
+    status: { message, type }
+  });
+}
+
+clearStatus = () => {
+  this.setState({ status: { message: '' }})
+}
+
 
 
   render() {
 
     const home = () => {
-      return (<p>Welcome to Selam and Angela's video rental store!</p>);
+      return (<p>Welcome to Selam and Angelas video rental store!</p>);
     };
 
     return (
-      // <div className="App">
-      //   <header className="App-header">
-      //     <img src={logo} className="App-logo" alt="logo" />
-      //     <h1 className="App-title">Welcome to React</h1>
-      //   </header>
-      //   <p>
-      //     <Rental
-      //       customer={this.state.selectedCustomer}
-      //       movieName={this.state.selectedMovie}
-      //     />
-      //   </p>
-      //   <p>
-      //   <MovieSearch />
-      //   <CustList
-      //     appCustomer={this.appLevelcustomer}
-      //   />
-      //
-      //   <LibraryList
-      //     appMovie={this.appLevelmovie}
-      //   />
-      //   </p>
-      //
-      // </div>
       <Router>
       <section>
       <ul>
@@ -77,20 +67,24 @@ appLevelmovie = (aMovie) =>{
       <li><Rental
         customer={this.state.selectedCustomer}
         movieName={this.state.selectedMovie}
+        setStatus={this.setStatus}
       /></li>
       </ul>
-
       <hr/>
-
+        <div>
+          <StatusBar {...this.state.status} clearStatus={this.clearStatus} />
+        </div>
       <Route exact path="/" component={home}/>
       <Route path="/search" component={MovieSearch}/>
       <Route path="/library"
-      render={(props) => <LibraryList {...props} appMovie={this.appLevelmovie} />}
+      render={(props) => <LibraryList {...props} appMovie={this.appLevelmovie} setStatus={this.setStatus} />}
       />
       <Route path="/customers"
-      render={(props) => <CustList {...props} appCustomer={this.appLevelcustomer} />}
+      render={(props) => <CustList {...props} appCustomer={this.appLevelcustomer} setStatus={this.setStatus} />}
       />
+
       </section>
+
       </Router>
     );
   }

@@ -13,16 +13,19 @@ constructor(){
 }
 
 componentDidMount = () => {
+  this.props.setStatus('Loading customers...', 'pending');
   axios.get('http://localhost:3000/customers')
     .then( (response) => {
+
       this.setState({
         customers: response.data
       });
-      console.log(response.data)
+      this.props.setStatus(`Loaded ${response.data.length} customers`, 'success');
     } )
     .catch( (error) => {
       console.log("got to the error");
       console.log(error);
+      this.props.setStatus(`Failed to load customers: ${error.message}`, 'error');
       this.setState({
         error: error.message
       });
@@ -64,5 +67,8 @@ customerList = () => {
   }
 }
 
-
+CustomerList.propTypes = {
+  setStatus: PropTypes.func.isRequired,
+  appCustomer: PropTypes.func.isRequired,
+}
 export default CustomerList;

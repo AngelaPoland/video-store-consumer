@@ -5,10 +5,6 @@ import axios from 'axios';
 class Rental extends Component {
   constructor() {
     super();
-    this.state = {
-      success: '',
-      error: '',
-    };
   }
 
   addRental = () => {
@@ -23,16 +19,10 @@ class Rental extends Component {
 
     axios.post( `http://localhost:3000/rentals/${movie}/check-out?customer_id=${this.props.customer.id}&due_date=${rentalDate}`)
     .then((response) => {
-      this.setState({
-        success: `Success: ${movie} has been checked out by ${customer} and is due on ${rentalDate}.`
-      });
-
+      this.props.setStatus(`Success: ${movie} has been checked out by ${customer} and is due on ${rentalDate}.`, 'success');
     })
     .catch((error) => {
-      this.setState({
-        error: error.message
-      });
-
+      this.props.setStatus(`Unable to create Rental: ${error.message}`, 'error');
     });
   }
 
@@ -42,15 +32,6 @@ class Rental extends Component {
     this.addRental();
   }
 
-<<<<<<< HEAD
-
-onFormSubmit = (event) => {
-  event.preventDefault();
-  this.addRental();
-}
-=======
-
->>>>>>> 7a504823188f64e2f8690d1bdcbab788e9d5bb0d
 
   render(){
     return(
@@ -66,8 +47,6 @@ onFormSubmit = (event) => {
           </div>
           <input type="submit" value="Checkout" />
         </form>
-        <h4>{this.state.error}</h4>
-        <h4>{this.state.success}</h4>
       </div>
     )
   }

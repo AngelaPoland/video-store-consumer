@@ -9,14 +9,17 @@ class Movie extends Component {
 
 
     addMovieToLibrary = () => {
+    this.props.setStatus(`Adding movie "${this.props.name}" to rental library...`, 'pending');
     const URL = `http://localhost:3000/movies/`
     axios.post(URL + `?title=${this.props.name}&release_date=${this.props.release_date}&image_url=${this.props.image_url}&overview=${this.props.overview}`)
     .then((response) => {
-      console.log(response)
-      `Successfully added "${this.props.name}" to the Video Store Library`
+      this.props.setStatus(
+          `Successfully added "${this.props.name}" to library`, 'success');
     })
     .catch((error) => {
-      console.log(error);
+      this.props.setStatus(
+          `Could not add "${this.props.name}" to library: ${error.message}`, 'error');
+        console.log('failure response');
     });
   }
 
@@ -44,7 +47,8 @@ class Movie extends Component {
     id: PropTypes.number.isRequired,
     release_date: PropTypes.string,
     overview: PropTypes.string,
-    addMovie: PropTypes.func.isRequired
+    addMovie: PropTypes.func.isRequired,
+    setStatus: PropTypes.func.isRequired
   };
 
   export default Movie;

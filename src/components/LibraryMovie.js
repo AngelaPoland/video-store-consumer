@@ -11,7 +11,7 @@ class LibraryMovie extends Component {
     }
 
     selectedCustomerfromButton = () =>{
-      return this.props.rentalFun(this.props.title)
+      return this.props.rentalFun({id:this.props.id,title:this.props.title})
     }
 
 

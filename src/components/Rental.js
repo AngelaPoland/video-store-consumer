@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Cust from './Customer.js'
 import axios from 'axios';
 class Rental extends Component {
+
   constructor() {
     super();
   }
@@ -14,7 +15,7 @@ class Rental extends Component {
     let month = time.getMonth() + 1
     let day = time.getDate()
     let rentalDate = `${year}-${month}-${day + 7}`;
-    let movie = this.props.movieName;
+    let movie = this.props.movie.title;
     let customer = this.props.customer.name
 
     axios.post( `http://localhost:3000/rentals/${movie}/check-out?customer_id=${this.props.customer.id}&due_date=${rentalDate}`)
@@ -30,6 +31,8 @@ class Rental extends Component {
   onFormSubmit = (event) => {
     event.preventDefault();
     this.addRental();
+    this.props.customer.name = ''
+    this.props.movie.title = ''
   }
 
 
@@ -39,11 +42,11 @@ class Rental extends Component {
         <form onSubmit={this.onFormSubmit}>
           <div>
             <label htmlFor="customerName">Customer: </label>
-            <input name="cust" value={this.props.customer.name} />
+            <input name="cust" value={this.props.customer.name} disabled/>
           </div>
           <div>
             <label htmlFor="movieName">Movie: </label>
-            <input name="movie" value={this.props.movieName} />
+            <input name="movie" value={this.props.movie.title} disabled/>
           </div>
           <input type="submit" value="Checkout" />
         </form>
@@ -53,7 +56,7 @@ class Rental extends Component {
 }
 
 Rental.propTypes = {
-  customer: PropTypes.string,
-  movieName: PropTypes.string.isRequired
+  customer: PropTypes.string.isRequired,
+  movie: PropTypes.string.isRequired
 }
 export default Rental;

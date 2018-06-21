@@ -75,7 +75,9 @@ clearStatus = () => {
           <StatusBar {...this.state.status} clearStatus={this.clearStatus} />
         </div>
       <Route exact path="/" component={home}/>
-      <Route path="/search" component={MovieSearch}/>
+      <Route path="/search"
+        render={(props) => <MovieSearch {...props} setStatus={this.setStatus} />}
+        />
       <Route path="/library"
       render={(props) => <LibraryList {...props} appMovie={this.appLevelmovie} setStatus={this.setStatus} />}
       />

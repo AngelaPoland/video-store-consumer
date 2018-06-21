@@ -50,7 +50,7 @@ movieSearchShow = () => {
       overview={movie.overview}
       addMovie={this.addMovieToLibrary}
       movie={movie}
-      setStatus={this.setStatus}
+      setStatus={this.props.setStatus}
     />
   );
 });

@@ -16,12 +16,12 @@
   display:flex;
   flex-wrap:nowrap;
   justify-content: space-around;
+
 }
 
 .nav-bar li{
    list-style-type: none;
 }
-
 /* customer list */
 
 .customer-list{

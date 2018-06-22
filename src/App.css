@@ -2,12 +2,19 @@
   text-align: center;
 }
 
+.fixed {
+  position: sticky;
+  left: 0;
+  top: 0;
+  background-color: white;
+}
 
 
 
 .nav-bar{
   background-color:white;
   padding: 25px;
+
 }
 
 /* navigation bar */

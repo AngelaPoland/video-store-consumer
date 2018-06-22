@@ -56,6 +56,7 @@ class App extends Component {
     return (
       <Router>
         <section>
+        <div className="fixed">
         <div>
           <StatusBar {...this.state.status} clearStatus={this.clearStatus} />
         </div>
@@ -66,7 +67,6 @@ class App extends Component {
         <li><Link to="/customers"><img src="https://image.freepik.com/free-icon/crowd-of-users_318-50125.jpg" alt="link to Customers" width="40" height="40" title="customers"/></Link></li>
         </ul>
         <hr/>
-        <section className="bodyOfsite">
           <div>
           <Rental
             customer={this.state.selectedCustomer}
@@ -74,6 +74,8 @@ class App extends Component {
             setStatus={this.setStatus}
           />
           </div>
+        </div>
+        <section className="bodyOfsite">
 
         <Route exact path="/" component={Home}/>
         <Route path="/search"

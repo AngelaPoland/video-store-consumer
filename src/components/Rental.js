@@ -50,7 +50,8 @@ class Rental extends Component {
             <label className="movie-label" htmlFor="movieName">Movie: </label>
             <input name="movie" value={this.props.movie.title} disabled/>
           </div>
-              <input className="submit-button" type="submit" width="50" height="30" value="Checkout"/>
+          <input id="image" type="image" alt="Checkout button"
+           src="https://i.imgur.com/oGbuhGm.png?3"/>
         </section>
         </form>
           <hr/>

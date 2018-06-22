@@ -32,6 +32,9 @@
 /* customer list */
 
 .customer-list{
+  margin-left:30px;
+}
+.customer-list{
   display:flex;
   flex-wrap: wrap;
 }
@@ -62,6 +65,9 @@
 }
 
 /* database movie list */
+.db-movie-search-list{
+  margin-left: 25px;
+}
 .db-movie-search-list{
   display:flex;
   flex-wrap: wrap;

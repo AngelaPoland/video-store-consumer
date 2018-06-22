@@ -3,5 +3,9 @@
 }
 
 .search-movie-labels div{
-  margin-left: 10px;
+  padding-left: 30px;
+}
+
+h3{
+  margin-right:30px;
 }

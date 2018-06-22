@@ -44,13 +44,10 @@ class MovieSearchForm extends Component {
   render() {
     return(
       <div >
-      <p><strong>Search for Movie by Title:</strong></p>
-
-
+      <h3>Search for Movie by Title</h3>
       <form onSubmit={this.onFormSubmit} >
       <section className="search-movie-labels">
         <div>
-          <label hmtlfor="text">Title: </label>
           <input
             name="title"
             value={this.state.title}

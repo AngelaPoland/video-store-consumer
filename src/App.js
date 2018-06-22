@@ -98,7 +98,7 @@ class App extends Component {
               render={(props) => <CustList {...props} appCustomer={this.appLevelcustomer} setStatus={this.setStatus} />}
               />
           </div>
-          
+
         </section>
 
       </Router>

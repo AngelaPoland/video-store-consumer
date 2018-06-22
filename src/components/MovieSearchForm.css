@@ -1,0 +1,7 @@
+.search-movie-labels{
+  display:flex;
+}
+
+.search-movie-labels div{
+  margin-left: 10px;
+}

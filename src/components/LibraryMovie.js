@@ -22,12 +22,12 @@ class LibraryMovie extends Component {
       <div className="movie">
         <h2>{this.props.title}</h2>
         <img src={this.props.image_url} alt="movie image" />
-        <p>Release Date: {this.props.release_date}</p>
-        <p>Overview:</p>
-        <p>{this.props.overview}</p>
         <p>
           <MovieRentalButton selectedMovie={this.selectedCustomerfromButton}/>
         </p>
+        <p><strong>Release Date:</strong>{this.props.release_date}</p>
+        <strong><p>Overview:</p></strong>
+        <p>{this.props.overview}</p>
       </div>
       )
     }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
+import './MovieSearchForm.css';
 
 
 
@@ -45,7 +45,10 @@ class MovieSearchForm extends Component {
     return(
       <div >
       <p><strong>Search for Movie by Title:</strong></p>
+
+
       <form onSubmit={this.onFormSubmit} >
+      <section className="search-movie-labels">
         <div>
           <label hmtlfor="text">Title: </label>
           <input
@@ -56,8 +59,10 @@ class MovieSearchForm extends Component {
             />
         </div>
         <div>
-        <input type="submit" value="Search" />
+        <input id="image" type="image" width="25" height="25" alt="Search"
+         src="http://images.clipartpanda.com/magnifying-glass-book-clipart-magnifying-glass-clipart-hi.png"/>
         </div>
+        </section>
       </form>
       </div>
     );

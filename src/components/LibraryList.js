@@ -17,7 +17,6 @@ movieFromlibrary = (aMovie) => {
   this.props.appMovie(aMovie)
 }
 
-
 componentDidMount = () => {
   axios.get('http://localhost:3000/movies')
     .then( (response) => {
@@ -50,7 +49,6 @@ libraryList = () => {
 });
   return libraryList;
 }
-
 
 moviesFromsearch = () => {
   const movies = this.state.movies.map((movie) =>{

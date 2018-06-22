@@ -65,7 +65,7 @@ class App extends Component {
         <li><Link to="/library"><img src="https://png.icons8.com/metro/1600/library.png" alt="link to rental library" width="40" height="40" title="library"/></Link></li>
         <li><Link to="/customers"><img src="https://image.freepik.com/free-icon/crowd-of-users_318-50125.jpg" alt="link to Customers" width="40" height="40" title="customers"/></Link></li>
         </ul>
-        <hr/>
+        
           <div>
           <Rental
             customer={this.state.selectedCustomer}

@@ -84,7 +84,7 @@ class App extends Component {
         <div>
           <StatusBar {...this.state.status} clearStatus={this.clearStatus} />
         </div>
-      <Route exact path="/" component={home}/>
+      <Route exact path="/" component={Home}/>
       <Route path="/search"
         render={(props) => <MovieSearch {...props} setStatus={this.setStatus} />}
         />

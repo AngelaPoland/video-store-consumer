@@ -10,6 +10,7 @@ import LibraryList from './components/LibraryList.js'
 import MovieSearch from './components/MovieSearch.js'
 import Rental from './components/Rental.js'
 import MovieRentalButton from './components/MovieRentalButton.js';
+import Home from './components/Home.js';
 import './App.css';
 
 class App extends Component {
@@ -32,22 +33,22 @@ class App extends Component {
   }
 
 
-appLevelmovie = (aMovie) =>{
-  this.setState({
-    selectedMovie: aMovie
-  })
-}
+  appLevelmovie = (aMovie) =>{
+    this.setState({
+      selectedMovie: aMovie
+    })
+  }
 
-// thanks for the inspiration Dan!
-setStatus = (message, type) => {
-  this.setState({
-    status: { message, type }
-  });
-}
+  // thanks for the inspiration Dan!
+  setStatus = (message, type) => {
+    this.setState({
+      status: { message, type }
+    });
+  }
 
-clearStatus = () => {
-  this.setState({ status: { message: '' }})
-}
+  clearStatus = () => {
+    this.setState({ status: { message: '' }})
+  }
 
 
 

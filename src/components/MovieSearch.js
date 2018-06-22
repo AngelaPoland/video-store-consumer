@@ -23,7 +23,6 @@ searchMovieAPI = (title) => {
       this.props.setStatus(`Found ${response.data.length} results for ${title}`, 'success');
       this.setState({
         movies: response.data,
-        message: `Found ${response.data.length} results for "${title}" `
       });
     } )
     .catch( (error) => {

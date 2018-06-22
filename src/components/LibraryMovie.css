@@ -1,0 +1,18 @@
+.movie{
+  padding: 30px;
+  border: solid;
+  min-width: 300px;
+  min-height: 200px;
+  text-align: center;
+  background-color: #DDD9FD
+}
+
+.scroll{
+  width: 250px;
+  height: 110px;
+  border-top: solid;
+  overflow-y: scroll;
+  scroll-behavior:smooth;
+  text-align:left;
+  margin-top:10px;
+}

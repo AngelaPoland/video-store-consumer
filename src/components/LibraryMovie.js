@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 // import './LibraryMovie.css';
 import MovieRentalButton from './MovieRentalButton.js'
+import './LibraryMovie.css'
 class LibraryMovie extends Component {
 
   addMovie = (event) => {
@@ -25,9 +26,8 @@ class LibraryMovie extends Component {
         <p>
           <MovieRentalButton selectedMovie={this.selectedCustomerfromButton}/>
         </p>
-        <p><strong>Release Date:</strong>{this.props.release_date}</p>
-        <strong><p>Overview:</p></strong>
-        <p>{this.props.overview}</p>
+        <p><strong>Release Date: </strong>{this.props.release_date}</p>
+        <p className="scroll">{this.props.overview}</p>
       </div>
       )
     }

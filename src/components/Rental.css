@@ -8,6 +8,16 @@ h3{
   margin-left: 70%;
 }
 
+form{
+  margin-top:15px;
+}
+form div{
+  margin-top:15px;
+}
+.check-out-section{
+  background-color:gray;
+}
+
 .rental-labels div{
   margin-left: 10px;
   padding-bottom: 10px;

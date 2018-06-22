@@ -32,8 +32,7 @@ class Movie extends Component {
         <h2>{this.props.name}</h2>
         <img src={this.props.image_url} />
         <p>Release Date: {this.props.release_date}</p>
-        <p>Overview:</p>
-        <p>{this.props.overview}</p>
+        <p className="scroll">{this.props.overview}</p>
         <button onClick={this.addMovieToLibrary}>Add Movie to Library</button>
       </div>
       )

@@ -3,6 +3,13 @@
 }
 
 
+
+
+.nav-bar{
+  background-color:white;
+  padding: 25px;
+}
+
 /* navigation bar */
 
 .nav-bar{
@@ -12,11 +19,7 @@
 }
 
 .nav-bar li{
-  list-style-type: none;
-}
-
-.fixed {
-  position: fixed;
+   list-style-type: none;
 }
 
 /* customer list */
@@ -42,7 +45,7 @@
   padding:10px;
 }
 
-/* library move list */
+/* library movie list */
 
 .library-list{
   display:flex;
@@ -68,9 +71,6 @@
   width: auto;
   margin: 10px;
 }
-
-
-
 
 
 

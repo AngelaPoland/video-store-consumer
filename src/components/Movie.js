@@ -34,7 +34,6 @@ class Movie extends Component {
         <button onClick={this.addMovieToLibrary}>Add Movie to Library</button>
         <p>Release Date: {this.props.release_date}</p>
         <p className="scroll">{this.props.overview}</p>
-        <button onClick={this.addMovieToLibrary}>Add Movie to Library</button>
       </div>
       )
     }

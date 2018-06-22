@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import CustRentButton from './CustomerRentalButton.js'
+import './Customer.css'
 class Customer extends Component {
   //1. button for number of rentals in the Customer list
   // Method - onclick function that will be linked (reserve submit button). Will be linked to a method that increases the count of a specific customer. Function will modify state of a customer.
@@ -11,7 +12,7 @@ class Customer extends Component {
 
   render(){
     return(
-      <div>
+      <div className="customer-card">
         <h2>{this.props.name}</h2>
         <p>{this.props.address}</p>
         <p>{this.props.city}</p>

@@ -31,10 +31,10 @@ class Movie extends Component {
       <div className="movie">
         <h2>{this.props.name}</h2>
         <img src={this.props.image_url} />
+        <button onClick={this.addMovieToLibrary}>Add Movie to Library</button>
         <p>Release Date: {this.props.release_date}</p>
         <p>Overview:</p>
         <p>{this.props.overview}</p>
-        <button onClick={this.addMovieToLibrary}>Add Movie to Library</button>
       </div>
       )
     }

@@ -11,8 +11,10 @@
   width: 250px;
   height: 110px;
   border-top: solid;
+  border-length: 300px;
   overflow-y: scroll;
   scroll-behavior:smooth;
   text-align:left;
   margin-top:10px;
+  padding:15px;
 }
